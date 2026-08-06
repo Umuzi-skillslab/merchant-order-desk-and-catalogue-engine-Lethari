@@ -1,18 +1,19 @@
 package domain;
 
+import java.math.BigDecimal;
+import java.util.Objects;
+
 public class Product {
     private final int id;
     private final String name;
-    private final double price;
+    private final BigDecimal price;
 
-//Constructors
-    public Product(int id, String name, double price) {
+    public Product(int id, String name, BigDecimal price) {
         this.id = id;
         this.name = name;
-        this.price = price;
+        this.price = Objects.requireNonNull(price, "Price cannot be null");
     }
 
-    //Getters to access what is passed in the Constructor
     public int getId() {
         return id;
     }
@@ -21,7 +22,7 @@ public class Product {
         return name;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 }

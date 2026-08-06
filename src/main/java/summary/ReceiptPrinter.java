@@ -1,5 +1,8 @@
 package summary;
 
+import java.math.BigDecimal;
+import java.util.Locale;
+
 import domain.Order;
 import domain.OrderItem;
 
@@ -13,15 +16,19 @@ public class ReceiptPrinter {
         System.out.println("Customer: " + order.getCustomer().getName());
         System.out.println("---------------------------------");
 
-        for (OrderItem item: order.getItems()) {
-            System.out.printf("%s x%d R%.2f%n",
-                item.getProduct().getName(),
-                item.getQuantity(),
-                item.getLineTotal());
+        for (OrderItem item : order.getItems()) {
+            System.out.printf("%s x%d %s%n",
+                    item.getProduct().getName(),
+                    item.getQuantity(),
+                    formatCurrency(item.getLineTotal()));
         }
 
         System.out.println("---------------------------------");
-        System.out.printf("TOTAL: R%.2f%n", order.calculateTotal());
+        System.out.println("TOTAL: " + formatCurrency(order.calculateTotal()));
         System.out.println("=================================");
+    }
+
+    private String formatCurrency(BigDecimal amount) {
+        return "R" + String.format(Locale.US, "%,.2f", amount);
     }
 }

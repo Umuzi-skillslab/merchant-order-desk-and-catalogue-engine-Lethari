@@ -1,42 +1,48 @@
 package domain;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class Order {
     private final int id;
     private final Customer customer;
     private final List<OrderItem> items;
 
-    // Constructor: starts with an empty cart
     public Order(int id, Customer customer) {
         this.id = id;
         this.customer = customer;
         this.items = new ArrayList<>();
     }
 
-    // Add 1 item at a time
     public void addItem(Product product, int quantity) {
-        // Safety check - no null or negative quantities
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
         if (quantity <= 0) {
             throw new IllegalArgumentException("Quantity must be greater than zero");
         }
+
+        for (OrderItem existingItem : items) {
+            if (existingItem.getProduct().getId() == product.getId()) {
+                existingItem.addQuantity(quantity);
+                return;
+            }
+        }
+
         items.add(new OrderItem(product, quantity));
     }
 
-    // Calculate total by looping
-    public double calculateTotal() {
-        double total = 0.0;
+    public BigDecimal calculateTotal() {
+        BigDecimal total = BigDecimal.ZERO;
         for (OrderItem item : items) {
-            total += item.getLineTotal();
+            total = total.add(item.getLineTotal());
         }
-        return total;
+        return total.setScale(2);
     }
 
-    // Getters - so other classes can read data
     public int getId() {
         return id;
     }
@@ -46,10 +52,9 @@ public class Order {
     }
 
     public List<OrderItem> getItems() {
-        return items;
+        return Collections.unmodifiableList(items);
     }
 
-    // Updated toString to use the getters
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -58,10 +63,14 @@ public class Order {
         sb.append("Items:\n");
         for (OrderItem item : items) {
             sb.append(" - ").append(item.getProduct().getName())
-            .append(" x").append(item.getQuantity())
-            .append(" = R").append(item.getLineTotal()).append("\n");
+                    .append(" x").append(item.getQuantity())
+                    .append(" = ").append(formatCurrency(item.getLineTotal())).append("\n");
         }
-        sb.append("Total: R").append(calculateTotal());
+        sb.append("Total: ").append(formatCurrency(calculateTotal()));
         return sb.toString();
+    }
+
+    private String formatCurrency(BigDecimal amount) {
+        return "R" + String.format(Locale.US, "%,.2f", amount);
     }
 }

@@ -1,7 +1,8 @@
-c:\Users\Phildah Lekalakala\Desktop\Capstone\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\domain\Order.java
-c:\Users\Phildah Lekalakala\Desktop\Capstone\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\domain\Customer.java
-c:\Users\Phildah Lekalakala\Desktop\Capstone\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\service\OrderService.java
-c:\Users\Phildah Lekalakala\Desktop\Capstone\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\domain\Product.java
-c:\Users\Phildah Lekalakala\Desktop\Capstone\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\App\PayNestApplication.java
-c:\Users\Phildah Lekalakala\Desktop\Capstone\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\summary\ReceiptPrinter.java
-c:\Users\Phildah Lekalakala\Desktop\Capstone\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\domain\OrderItem.java
+C:\Users\Phildah Lekalakala\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\domain\OrderItem.java
+C:\Users\Phildah Lekalakala\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\service\ProductCatalog.java
+C:\Users\Phildah Lekalakala\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\App\PayNestApplication.java
+C:\Users\Phildah Lekalakala\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\domain\Order.java
+C:\Users\Phildah Lekalakala\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\summary\ReceiptPrinter.java
+C:\Users\Phildah Lekalakala\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\service\OrderService.java
+C:\Users\Phildah Lekalakala\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\domain\Customer.java
+C:\Users\Phildah Lekalakala\merchant-order-desk-and-catalogue-engine-Lethari\src\main\java\domain\Product.java
