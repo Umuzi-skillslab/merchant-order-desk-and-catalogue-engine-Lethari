@@ -13,7 +13,6 @@ This demo models a simple customer order flow and prints a receipt for the selec
 cd merchant-order-desk-and-catalogue-engine-Lethari
 ./mvnw clean compile exec:java -Dexec.mainClass="App.PayNestApplication"
 ```
-This means you do not need a separate Maven installation.
 
 ## What this demonstrates
 1. Customer and Order domain objects are created.
